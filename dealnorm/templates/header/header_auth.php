@@ -1,0 +1,25 @@
+        <header class="main-header">
+            <a href="index.php" class="main-header__logo">
+                <img src="img/logo.png" width="153" height="42" alt="Логитип Дела в порядке">
+            </a>
+
+            <div class="main-header__side">
+                <?php if (!empty($user)): ?>
+                <a class="main-header__side-item button button--plus" href="add.php">Добавить задачу</a>
+
+                <div class="main-header__side-item user-menu">
+                    <div class="user-menu__image">
+                        <img src="img/user-pic.jpg" width="40" height="40" alt="Пользователь">
+                    </div>
+
+                    <div class="user-menu__data">
+                        <p><?php echo htmlspecialchars($user['name']); ?></p>
+
+                        <a href="logout.php">Выйти</a>
+                    </div>
+                </div>
+                <?php else: ?>
+                <a class="main-header__side-item button button--transparent" href="auth.php">Войти</a>
+                <?php endif; ?>
+            </div>
+        </header> 

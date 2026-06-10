@@ -1,0 +1,6 @@
+ <div class="main_article">
+        <div class="grid-container">
+          <div class="main_article-heading heading">Так же Вам могут быть полезны  <a href="catalog.php">  наши статьи</a><a class="mobile-more" href="catalog.php"></a></div>
+          <div class="main_article-wrapper"><a class="main_article-item" href="catalog.php">Покупать или арендовать?</a><a class="main_article-item" href="catalog.php">Характеристики бытовок</a><a class="main_article-item" href="catalog.php">Назначение бытовок</a><a class="main_article-item" href="catalog.php">Использование крана-манипулятора</a><a class="main_article-item" href="catalog.php">Купить бытовку бу</a><a class="main_article-item" href="catalog.php">Бытовка склад</a><a class="main_article-item" href="catalog.php">Бытовка прорабская(офис)</a><a class="main_article-item" href="catalog.php">Бытовка жилая</a><a class="main_article-item" href="catalog.php">Бытовка столовая</a><a class="main_article-item" href="catalog.php">Бытовка раздевалка</a><a class="main_article-item" href="catalog.php">Бытовка пост-охраны</a></div>
+        </div>
+      </div>
