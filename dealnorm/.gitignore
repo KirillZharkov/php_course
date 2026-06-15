@@ -9,4 +9,4 @@ Thumbs.db
 vendor
 uploads/*
 !uploads/.
-config/*
+config/config.php
