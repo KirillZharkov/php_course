@@ -41,9 +41,9 @@
             <main class="content__main">
                 <h2 class="content__main-heading">Список задач</h2>
 
-                <form class="search-form" action="index.php" method="post">
-                    <input class="search-form__input" type="text" name="" value="" placeholder="Поиск по задачам">
-
+                <form class="search-form" action="index.php" method="get">
+                    <input class="search-form__input" type="text" name="search" value="<?php echo htmlspecialchars($search_query ?? ''); ?>" 
+                    placeholder="Поиск по задачам">
                     <input class="search-form__submit" type="submit" name="" value="Искать">
                 </form>
 
@@ -114,10 +114,10 @@
                     foreach($tasks as $task):
                         if ($task['status'] == 1 && $show_complete_tasks === 0) continue;
 
-                        $hours_until = null;
+                        $hours_until_deadline = null;
                         if ($task['deadline']) {
                             $deadline_ts = strtotime($task['deadline']);
-                            $hours_until = ($deadline_ts - strtotime('today')) / 3600;
+                            $hours_until_deadline = ($deadline_ts - strtotime('today')) / 3600;
                         }
                     ?>
                     <tr class="tasks__item task 
@@ -176,4 +176,7 @@
                         </td>
                     </tr> --> 
                 </table>
+                <?php if (!empty($search_query) && empty($tasks)): ?>
+                    <p class="tasks-empty">Ничего не найдено по вашему запросу</p>
+                <?php endif; ?>
             </main>

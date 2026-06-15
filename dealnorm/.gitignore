@@ -8,4 +8,5 @@
 Thumbs.db
 vendor
 uploads/*
-!uploads/.gitkeep
+!uploads/.
+config/*

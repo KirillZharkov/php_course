@@ -49,8 +49,14 @@ $all_tasks = getProjectTasks($db->getConnection(), $actual_user_id, null);
 
 $filter = $_GET['filter'] ?? 'all';
 $show_complete_tasks = isset($_GET['show_complete']) ? 1 : 0;
+$search_query = trim($_GET['search'] ?? '');
+if (!empty($search_query)) {
+    $tasks = searchTasks($db->getConnection(), $actual_user_id, $search_query);
+} else {
+    $tasks = getFilteredTasks($db->getConnection(), $actual_user_id, $current_project_id, $filter);
+}
 
-$tasks = getFilteredTasks($db->getConnection(), $actual_user_id, $current_project_id, $filter);
+//$tasks = getFilteredTasks($db->getConnection(), $actual_user_id, $current_project_id, $filter);
 
 $content_side_main = include_template("main.php",[
     "show_complete_tasks" => $show_complete_tasks,
@@ -58,7 +64,8 @@ $content_side_main = include_template("main.php",[
     "filter" => $filter,
     "tasks" => $tasks,
     "all_tasks" => $all_tasks,
-    "current_project_id" => $current_project_id]);
+    "current_project_id" => $current_project_id,
+    "search_query" => $search_query]);
 
 
 $layout_content = include_template("layout.php",[

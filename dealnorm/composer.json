@@ -1,0 +1,18 @@
+{
+    "name": "kirys/dealnorm",
+    "description": "delavporyadke",
+    "autoload": {
+        "psr-4": {
+            "Kirys\\Dealnorm\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "KirillZharkov",
+            "email": "kiryshazharkov@gmail.com"
+        }
+    ],
+    "require": {
+        "swiftmailer/swiftmailer": "^6.3"
+    }
+}

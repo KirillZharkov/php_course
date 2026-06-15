@@ -59,6 +59,13 @@ function getFilteredTasks($db, int $user_id, ?int $project_id, string $filter = 
     return mysqli_fetch_all(mysqli_stmt_get_result($stmt), MYSQLI_ASSOC);
 }
 
+function searchTasks($db, int $user_id, string $query): array {
+    $sql = "SELECT * FROM tasks WHERE user_id = ? AND MATCH(title) AGAINST(? IN BOOLEAN MODE)";
+    $stmt = db_get_prepare_stmt($db, $sql, [$user_id, $query . '*']);
+    mysqli_stmt_execute($stmt);
+    return mysqli_fetch_all(mysqli_stmt_get_result($stmt), MYSQLI_ASSOC);
+}
+
 // $actual_user_id = 1;
 // $current_project_id = null;
 // $flag=null;
